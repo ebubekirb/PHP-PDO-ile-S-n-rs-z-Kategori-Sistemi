@@ -7,13 +7,26 @@
 	<link rel="stylesheet" href="assets/css/custom.css">
 </head>
 <body>
+
+	<?php 
+
+	/************************************ SQL İşlemleri **************************************/
+
+	require_once "lib/db.php";
+
+	$category_list = $db->query("SELECT * from category", PDO::FETCH_OBJ)->fetchAll();
+
+	/*****************************************************************************************/
+
+	 ?>
+
 	<div class="container">
 		<h3 class="text-center">Kategori / Alt Kategori İşlemleri</h3>
 		<div class="row">
 			<div class="col-md-6 well">
 				<h4 class="text-center">Kategori Ekleme</h4>
 				<hr>
-				<form action="" method="post">
+				<form action="lib/category_db.php" method="post">
 					<div class="form-group">
 						<label>Kategori Adı</label>
 						<input type="text" class="form-control" name="title">
@@ -22,6 +35,9 @@
 						<label>Varsa Üst Kategori</label>
 						<select name="parent_id" class="form-control">
 							<option selected value="0">Yok</option>
+							<?php foreach ($category_list as $category) { ?>
+								<option value="<?php echo $category->id; ?>"><?php echo $category->title; ?></option>
+							<?php } ?>
 						</select>
 					</div>
 
