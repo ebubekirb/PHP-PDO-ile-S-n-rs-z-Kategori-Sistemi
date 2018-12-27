@@ -38,7 +38,7 @@ function drawElements($items){
 
 	foreach($items as $item){
 
-		echo "<li>{$item->title}</li>";
+		echo "<li>{ $item->title }</li>";
 
 		if (sizeof($item->children) > 0) {
 			
