@@ -5,6 +5,8 @@
 	<title>Kategori / Alt Kategori İşlemleri</title>
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/custom.css">
+	
+
 </head>
 <body>
 
@@ -13,6 +15,7 @@
 	/************************************ SQL İşlemleri **************************************/
 
 	require_once "lib/db.php";
+	require_once "lib/function.php";
 
 	$category_list = $db->query("SELECT * from category", PDO::FETCH_OBJ)->fetchAll();
 
@@ -52,7 +55,9 @@
 				<div class="col-md-11 well">
 					<h4 class="text-center">Kategori Hiyerarşisi</h4>
 					<hr>
-					Kategori Listeri burada yer alacaktır
+					<pre>
+						<?php print_r(buildTree($category_list)); ?>
+					</pre>		
 				</div>
 			</div>
 		</div>
