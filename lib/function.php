@@ -31,4 +31,22 @@ function buildTree($elements, $parentId = 0){
 		 return $branch;
 }
 
+
+function drawElements($items){
+
+	echo "<ul>";
+
+	foreach($items as $item){
+
+		echo "<li>{$item->title}</li>";
+
+		if (sizeof($item->children) > 0) {
+			
+			drawElements($item->children);
+		}
+	}
+
+	echo "</ul>";
+}
+
  ?>

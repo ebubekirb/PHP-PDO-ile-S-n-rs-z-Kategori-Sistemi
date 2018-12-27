@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Kategori / Alt Kategori İşlemleri</title>
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/custom.css">
 	
 
 </head>
@@ -55,9 +54,7 @@
 				<div class="col-md-11 well">
 					<h4 class="text-center">Kategori Hiyerarşisi</h4>
 					<hr>
-					<pre>
-						<?php print_r(buildTree($category_list)); ?>
-					</pre>		
+						<?php drawElements(buildTree($category_list)); ?>
 				</div>
 			</div>
 		</div>
